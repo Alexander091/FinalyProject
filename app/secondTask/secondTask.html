@@ -3,7 +3,7 @@
 <div class="container">
     <ui-view>
         <form class="form-horizontal" role="form" name="myForm">
-            <div class = "form-group" ng-class="myForm.email.$invalid ? 'has-error' : 'has-success'">
+            <div class = "form-group" ng-class="myForm.email.$invalid && myForm.email.$touched ? 'has-error' : myForm.email.$touched ? 'has-success' : ''">
                 <label class="control-label col-sm-2" for="email">Email:</label>
                 <div class="col-sm-10">
                     <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" ng-model="userForm.email" required>
@@ -20,7 +20,7 @@
                 </div>
             </div>
 
-            <div class="form-group" ng-class="myForm.pwd.$invalid ? 'has-error' : 'has-success'">
+            <div class="form-group" ng-class="myForm.pwd.$invalid && myForm.pwd.$touched ? 'has-error' : myForm.pwd.$touched ? 'has-success' : ''">
                 <label class="control-label col-sm-2" for="pwd">Password:</label>
                 <div class="col-sm-10">
                     <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Enter password" ng-model="userForm.pwd" ng-minlength="8" required>
@@ -36,11 +36,11 @@
 
                 </div>
             </div>
-            <div class="form-group" ng-class="myForm.confpwd.$invalid ? 'has-error' : 'has-success'">
+            <div class="form-group" ng-class="myForm.confpwd.$invalid && myForm.confpwd.$touched ? 'has-error' : myForm.confpwd.$touched ? 'has-success' : ''">
                 <label class="control-label col-sm-2 .sr-only" for="confpwd"></label>
                 <div class="col-sm-10">
                     <input type="password" class="form-control" id="confpwd" name="confpwd" placeholder="Confirm password" ng-model="userForm.confpwd" compare-to="userForm.pwd"  required>
-                    <div ng-messages="myForm.confpwd.$error" role="alert">
+                    <div ng-messages="myForm.confpwd.$error" ng-show="myForm.confpwd.$touched" role="alert">
                         <div ng-message="compareTo">
                             <div class="alert alert-danger" role="alert">
                                 <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
@@ -52,7 +52,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <a href="#/finish" ui-sref="secondTask.finish" ng-disabled="myForm.$invalid" class="btn btn-primary">Send!</a>
+                    <button type="submit" ui-sref="secondTask.finish" ng-class="{'disabled': myForm.$invalid}" ng-disabled="myForm.$invalid" class="btn btn-primary">Send!</button>
                 </div>
             </div>
         </form>
