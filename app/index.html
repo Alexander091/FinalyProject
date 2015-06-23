@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+</head>
+<body>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="row">
+        <div class="center-block" style="width:200px;">
+          <ul class="list-inline">
+            <li class="list-group-item1"><a ui-sref="firstTask">first Task</a></li>
+            <li class="list-group-item1"><a ui-sref="secondTask">second Task</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div ui-view></div>
+
+  <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+  <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script type="text/javascript" src="bower_components/underscore/underscore-min.js"></script>
+  <script type="text/javascript" src="bower_components/restangular/dist/restangular.min.js"></script>
+  <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="bower_components/angular-messages/angular-messages.min.js"></script>
+
+  <script src="app.js"></script>
+  <script src="firstTask/firstTask.js"></script>
+  <script src="secondTask/secondTask.js"></script>
+
+</body>
+</html>

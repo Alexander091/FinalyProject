@@ -1,0 +1,21 @@
+<table id="searchTextResults" class="table table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th></th>
+            <th>Login</th>
+        </tr>
+        <tr>
+            <th><input ng-model="search.id"></th>
+            <th></th>
+            <th><input ng-model="search.login"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="info" ng-repeat="user in users | filter:search">
+            <td class="col-md-1">{{user.id}}</td>
+            <td class="col-md-1"><img ng-src="{{user.avatar_url}}" width="50" height="50"></td>
+            <td class="col-md-12">{{user.login}}</td>
+        </tr>
+    </tbody>
+</table>
